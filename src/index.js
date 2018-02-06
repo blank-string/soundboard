@@ -1,0 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app';
+import registerServiceWorker from './registerServiceWorker';
+import sounds from './sounds.json'
+
+ReactDOM.render(<App sounds={sounds} />, document.getElementById('root'));
+registerServiceWorker();
