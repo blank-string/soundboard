@@ -4,7 +4,8 @@ const Sound = ({name, src}) => <div>
     <button onClick={() => {
         const audio = document.getElementById('audio')
         audio.pause()
-        audio.src = src
+        if (audio.src === src) audio.currentTime = 0
+        else audio.src = src
         audio.play()
     }}>{name}</button>
 </div>

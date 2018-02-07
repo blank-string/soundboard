@@ -2,8 +2,9 @@
   "name": "soudboard.blankstring.com",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://soundboard.blankstring.com",
+  "homepage": "http://soundboard.blankstring.com",
   "dependencies": {
+    "@blank-string/components": "^1.0.0",
     "electron": "^1.7.12",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

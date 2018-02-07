@@ -1,4 +1,30 @@
-[{
-    "name": "EP 21",
-    "src": "/sounds/e021.mp3"
-}]
+[
+    {
+        "name": "human_audience_cheer_and_clap",
+        "src": "/sounds/human_audience_cheer_and_clap.mp3"
+    },
+    {
+        "name": "human_crowd_25_people_cheer_shout_yay",
+        "src": "/sounds/human_crowd_25_people_cheer_shout_yay.mp3"
+    },
+    {
+        "name": "little_robot_sound_factory_Shoot_02",
+        "src": "/sounds/little_robot_sound_factory_Shoot_02.mp3"
+    },
+    {
+        "name": "multimedia_alert_delayed_high_pitched_correct_positive",
+        "src": "/sounds/multimedia_alert_delayed_high_pitched_correct_positive.mp3"
+    },
+    {
+        "name": "sport_air_horn_002",
+        "src": "/sounds/sport_air_horn_002.mp3"
+    },
+    {
+        "name": "zapsplat_human_fart_12998",
+        "src": "/sounds/zapsplat_human_fart_12998.mp3"
+    },
+    {
+        "name": "zapsplat_human_fart_deep_close_up_through_shorts_12632",
+        "src": "/sounds/zapsplat_human_fart_deep_close_up_through_shorts_12632.mp3"
+    }
+]
