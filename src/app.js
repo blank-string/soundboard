@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import Soundboard from './soundboard'
+import React, { Component } from 'react'
+import Setup from './setup'
 
 class App extends Component {
-  state = {}
-  render() {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
+  render () {
     return <div>
-        <Soundboard sounds={this.props.sounds} />
-      </div>
+      <Setup />
+    </div>
   }
 }
 
-export default App;
+export default App
