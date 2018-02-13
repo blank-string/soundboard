@@ -8,7 +8,7 @@ import reducers from './reducers'
 import {ConnectedRouter, routerReducer, routerMiddleware} from 'react-router-redux'
 
 import Soundboard from './soundboard'
-import Manager from './manager'
+import Sound from './sound'
 import Header from './header'
 
 import 'normalize.css'
@@ -31,7 +31,7 @@ ReactDOM.render(
         <Route path='*' component={Header} />
         <Switch>
           <Route exact path='/' component={Soundboard} />
-          <Route path='/manager' component={Manager} />
+          <Route path='/sound' component={Sound} />
         </Switch>
       </div>
     </ConnectedRouter>

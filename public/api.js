@@ -13,6 +13,30 @@ const API = () => {
   return {
     save () {
       db.saveDatabase()
+    },
+    saveSound (sound) {
+      let sounds = db.getCollection('sounds')
+      if (sounds === null) sounds = db.addCollection('sounds')
+
+      const found = sounds.findOne({
+        name: sound.name
+      })
+
+      if (found === null) {
+        sounds.insert(sound)
+      } else {
+        found.name = sound.name
+        found.location = sound.location
+        found.img = sound.img
+        sounds.update(found)
+      }
+
+      db.saveDatabase()
+    },
+    getSounds () {
+      let sounds = db.getCollection('sounds')
+      if (sounds === null) sounds = db.addCollection('sounds')
+      console.log(sounds.data)
     }
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import add from '../icons/add.svg'
 
-const Header = ({header}) => {
+const Header = ({ header }) => {
   return <header>
     <section className='hero is-dark'>
       <div className='hero-body'>
@@ -14,8 +15,14 @@ const Header = ({header}) => {
     <div className='container'>
       <div className='tabs'>
         <ul>
-          <li className={`is-${header.soundboard}`}><Link to='/'>Soundboard</Link></li>
-          <li className={`is-${header.manager}`}><Link to='/manager'>Manger</Link></li>
+          <li className={`is-${header.soundboard}`}>
+            <Link to='/'>Soundboard</Link>
+          </li>
+          <li className={`is-${header.sound}`}>
+            <Link to='/sound'>
+              <span><img src={add} /> New</span>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
