@@ -1,9 +1,6 @@
 import {css, StyleSheet} from 'aphrodite'
 
 const styles = StyleSheet.create({
-  sound: {
-    margin: '1.5em'
-  },
   newIamge: {
     overflow: 'hidden',
     backgroundColor: '#e0e0e0',
@@ -55,7 +52,6 @@ const styles = StyleSheet.create({
 })
 
 export default {
-  sound: () => css(styles.sound),
   newImage: () => css(styles.newIamge),
   newImageCamera: () => css(styles.newImageCamera),
   newImageAdd: () => css(styles.newImageAdd),

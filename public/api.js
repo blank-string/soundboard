@@ -36,7 +36,7 @@ const API = () => {
     getSounds () {
       let sounds = db.getCollection('sounds')
       if (sounds === null) sounds = db.addCollection('sounds')
-      console.log(sounds.data)
+      return sounds.data
     }
   }
 }

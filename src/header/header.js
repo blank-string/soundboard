@@ -20,7 +20,7 @@ const Header = ({ header }) => {
           </li>
           <li className={`is-${header.sound}`}>
             <Link to='/sound'>
-              <span><img src={add} /> New</span>
+              <span><img alt='add' src={add} /> New</span>
             </Link>
           </li>
         </ul>
