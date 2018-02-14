@@ -1,11 +1,16 @@
+
+import uuid from 'uuid/v4'
+
 export default (state, action) => {
   state.soundboard = state.soundboard || {sounds: []}
   const sounds = window.api.getSounds()
   const rows = []
   let row = []
-  sounds.forEach((sounds, i) => {
-    row.push(sounds)
-    if (row.length === 3) {
+  sounds.forEach((sound, i) => {
+    sound.uuid = uuid()
+    sound.src = sound.location.replace('/home/luke/Projects/blank-string/soundboard/public', '')
+    row.push(sound)
+    if (row.length === 5) {
       rows.push(row)
       row = []
     }

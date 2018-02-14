@@ -28,13 +28,17 @@ const styles = StyleSheet.create({
     width: 40
   },
   title: {
-    textAlign: 'center'
+    textAlign: 'center',
+    height: 80
   },
   buttons: {
     textAlign: 'center'
   },
   icon: {
     fill: '#333'
+  },
+  sound: {
+    height: 400
   }
 })
 
@@ -44,5 +48,6 @@ export default {
   audio: () => css(styles.audio),
   title: () => css(styles.title),
   buttons: () => css(styles.buttons),
-  icon: () => css(styles.icon)
+  icon: () => css(styles.icon),
+  sound: () => css(styles.sound)
 }
