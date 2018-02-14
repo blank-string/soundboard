@@ -1,16 +1,14 @@
 import React from 'react'
 import styles from './styles'
-import camera from '../icons/camera.svg'
 import Camera from '../icons/camera'
-import add from '../icons/add.svg'
-import save from '../icons/save.svg'
+import Add from '../icons/add'
+import Save from '../icons/save'
 
 const Sound = ({sound, updateName, updateFile, saveSound}) => <section className='section'>
   <div className='container'>
     <div className={styles.newImage()}>
-      <Camera />
-      {/* <img alt='new' className={styles.newImageCamera()} src={camera} /> */}
-      <img alt='' className={styles.newImageAdd()} src={add} />
+      <Camera className={styles.newImageCamera()} />
+      <Add className={styles.newImageAdd()} />
     </div>
     <input
       onChange={(evt) => updateName(evt.target.value)}
@@ -28,7 +26,9 @@ const Sound = ({sound, updateName, updateFile, saveSound}) => <section className
       accept='.mp3'
     />
     <button onClick={() => saveSound(sound)} className={`button is-large is-info ${styles.save()}`}>
-      <img alt='save' className={styles.saveImage()} src={save} />
+      <span className='icon'>
+        <Save className={styles.saveImage()} />
+      </span>
       <span>Save</span>
     </button>
   </div>

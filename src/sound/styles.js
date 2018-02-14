@@ -24,16 +24,21 @@ const styles = StyleSheet.create({
     margin: 'auto',
     top: 0,
     bottom: 0,
-    height: 60
+    height: 100,
+    width: 100,
+    fill: '#333',
+    transform: 'translateY(-10px)'
   },
   newImageAdd: {
+    fill: '#3273dc',
     position: 'absolute',
     bottom: 0,
-    right: 40,
+    right: 32,
     height: 30,
+    width: 30,
     top: 0,
     margin: 'auto',
-    transform: 'translateY(25px)'
+    transform: 'translateY(26px)'
   },
   name: {
     width: '90%',
@@ -46,8 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   saveImage: {
-    marginRight: 5,
-    marginTop: -3
+    fill: '#fff'
   }
 })
 
