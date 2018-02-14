@@ -24,7 +24,7 @@ const Header = ({ header }) => {
               <span className='icon'>
                 <Add className={styles.add()} />
               </span>
-              <span>New</span>
+              <span>New Sound</span>
             </Link>
           </li>
         </ul>
