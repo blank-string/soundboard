@@ -1,12 +1,12 @@
-<svg width="24" height="25" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<title>Union</title>
+<svg width="18" height="18" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>save</title>
 <desc>Created using Figma</desc>
-<g id="Canvas" transform="translate(894 654)">
-<g id="Union">
-<use xlink:href="#path0_fill" transform="translate(-894 -654)" fill="#fff"/>
+<g id="Canvas" transform="translate(1042 528)">
+<g id="save">
+<use xlink:href="#path0_fill" transform="translate(-1042 -528)" fill="#333333"/>
 </g>
 </g>
 <defs>
-<path id="path0_fill" fill-rule="evenodd" d="M 14.3431 0L 3 0C 1.34314 0 0 1.34314 0 3L 0 22C 0 23.6569 1.34314 25 3 25L 21 25C 22.6569 25 24 23.6569 24 22L 24 8.62219L 14.3431 0ZM 21 11L 21 23L 3 23L 3 11L 21 11ZM 15 3L 3 3L 3 9L 15 9L 15 3ZM 12 5C 12 4.44769 12.4477 4 13 4C 13.5523 4 14 4.44769 14 5L 14 7C 14 7.55231 13.5523 8 13 8C 12.4477 8 12 7.55231 12 7L 12 5ZM 19 16L 5 16L 5 18L 19 18L 19 16ZM 19 19L 19 21L 5 21L 5 19L 19 19ZM 19 15L 19 13L 5 13L 5 15L 19 15Z"/>
+<path id="path0_fill" fill-rule="evenodd" d="M 10.7574 0L 3 0C 1.34314 0 0 1.34314 0 3L 0 15C 0 16.6569 1.34314 18 3 18L 15 18C 16.6569 18 18 16.6569 18 15L 18 6.20789L 10.7574 0ZM 2.25 7.92004L 15.75 7.92004L 15.75 16.56L 2.25 16.56L 2.25 7.92004ZM 11.25 2.16003L 2.25 2.16003L 2.25 6.47998L 11.25 6.47998L 11.25 2.16003ZM 7.5 2.88L 10.5 2.88L 10.5 5.76001L 7.5 5.76001L 7.5 2.88ZM 14.25 11.52L 3.75 11.52L 3.75 12.96L 14.25 12.96L 14.25 11.52ZM 3.75 13.68L 14.25 13.68L 14.25 15.12L 3.75 15.12L 3.75 13.68ZM 14.25 9.35999L 3.75 9.35999L 3.75 10.8L 14.25 10.8L 14.25 9.35999Z"/>
 </defs>
 </svg>

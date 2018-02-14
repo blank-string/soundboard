@@ -1,13 +1,15 @@
 import React from 'react'
 import styles from './styles'
 import camera from '../icons/camera.svg'
+import Camera from '../icons/camera'
 import add from '../icons/add.svg'
 import save from '../icons/save.svg'
 
 const Sound = ({sound, updateName, updateFile, saveSound}) => <section className='section'>
   <div className='container'>
     <div className={styles.newImage()}>
-      <img alt='new' className={styles.newImageCamera()} src={camera} />
+      <Camera />
+      {/* <img alt='new' className={styles.newImageCamera()} src={camera} /> */}
       <img alt='' className={styles.newImageAdd()} src={add} />
     </div>
     <input

@@ -8,7 +8,12 @@ const Soundboard = ({soundboard}) => {
       {soundboard.sounds.map(row => <div className='columns'>{
         row.map(sound => <div className='column'>
           <div className='box'>
+            <button>J</button>
             <img src={audio} />
+            <span>{sound.name}</span>
+            <button>S</button>
+            <button>P</button>
+            <button>Y</button>
           </div>
         </div>)
       }</div>

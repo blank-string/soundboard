@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import add from '../icons/add.svg'
+import Add from '../icons/add'
+import styles from './styles'
 
 const Header = ({ header }) => {
   return <header>
@@ -20,7 +21,10 @@ const Header = ({ header }) => {
           </li>
           <li className={`is-${header.sound}`}>
             <Link to='/sound'>
-              <span><img alt='add' src={add} /> New</span>
+              <span className='icon'>
+                <Add className={styles.add()} />
+              </span>
+              <span>New</span>
             </Link>
           </li>
         </ul>
