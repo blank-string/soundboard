@@ -1,5 +1,5 @@
 import React from 'react'
-import AudioIcon from '../icons/audio'
+import Audio from '../icons/audio'
 import Stop from '../icons/stop'
 import Play from '../icons/play'
 import Sync from '../icons/sync'
@@ -13,16 +13,20 @@ const Soundboard = ({soundboard}) => {
     <div className='container'>
       {soundboard.sounds.map(row => <div className='columns'>{
         row.map(sound => <div className={`column ${styles.sound()}`}>
-          <audio id={sound.uuid} />
+          <audio id={sound.uuid} src={sound.src} />
           <div className={styles.imageContainer()}>
             <figure className={`image ${styles.image()}`}>
-              <AudioIcon className={styles.audio()} />
+              <Audio className={styles.audio()} />
             </figure>
           </div>
           <h1 className={`title ${styles.title()}`}>{sound.name}</h1>
           <div className={styles.buttons()}>
             <button className='button' onClick={() => {
-              const audio = document.getElementById('audio')
+              let audio = document.getElementById('audio')
+              audio.currentTime = 0
+              audio.pause()
+
+              audio = document.getElementById(sound.uuid)
               audio.currentTime = 0
               audio.pause()
             }}>
@@ -40,7 +44,11 @@ const Soundboard = ({soundboard}) => {
                 <Play className={styles.icon()} />
               </span>
             </button>
-            <button className='button'>
+            <button className='button' onClick={() => {
+              const audio = document.getElementById(sound.uuid)
+              audio.currentTime = 0
+              audio.play()
+            }}>
               <span className='icon'>
                 <Sync className={styles.icon()} />
               </span>
