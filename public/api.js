@@ -1,6 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const Loki = require('lokijs')
+const uuid = require('uuid/v4')
 
 const API = () => {
   const db = new Loki(process.cwd() + '/.soundboard/soundboard.json')
@@ -23,11 +24,14 @@ const API = () => {
       })
 
       if (found === null) {
+        sound.uuid = uuid()
         sounds.insert(sound)
       } else {
         found.name = sound.name
         found.location = sound.location
         found.img = sound.img
+        found.index = sound.index
+        found.keyBinding = sound.keyBinding
         sounds.update(found)
       }
 
@@ -36,7 +40,13 @@ const API = () => {
     getSounds () {
       let sounds = db.getCollection('sounds')
       if (sounds === null) sounds = db.addCollection('sounds')
-      return sounds.data
+      const data = sounds.data
+      if (process.env.NODE) {
+        data.forEach(sound => {
+          sound.location = sound.location.replace(path.join(process.cwd(), 'public'), '')
+        })
+      }
+      return data
     }
   }
 }

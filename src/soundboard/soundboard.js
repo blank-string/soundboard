@@ -13,7 +13,7 @@ const Soundboard = ({soundboard}) => {
     <div className='container'>
       <div className={styles.sounds()}>
         {soundboard.sounds.map(sound => <div key={sound.uuid} className={styles.sound()}>
-          <audio id={sound.uuid} src={sound.src} />
+          <audio id={sound.uuid} src={sound.location} />
           <div className={styles.imageContainer()}>
             <figure className={`image ${styles.image()}`}>
               <Audio className={styles.audio()} />
@@ -23,6 +23,7 @@ const Soundboard = ({soundboard}) => {
           <div className={styles.buttons()}>
             <button className='button' onClick={() => {
               let audio = document.getElementById('audio')
+              if (audio.src !== sound.location) audio.src = sound.location
               audio.currentTime = 0
               audio.pause()
 
@@ -36,7 +37,7 @@ const Soundboard = ({soundboard}) => {
             </button>
             <button className='button' onClick={() => {
               const audio = document.getElementById('audio')
-              if (audio.src !== sound.src) audio.src = sound.src
+              if (audio.src !== sound.location) audio.src = sound.location
               audio.currentTime = 0
               audio.play()
             }}>

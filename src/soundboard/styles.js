@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
   sound: {
     margin: 20,
     width: 150,
-
     overflow: 'hidden'
   }
 })
