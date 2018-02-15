@@ -4,15 +4,15 @@ const styles = StyleSheet.create({
   imageContainer: {
     position: 'relative',
     width: '100%',
-    height: 100
+    height: 45
   },
   image: {
     position: 'absolute',
     left: 0,
     right: 0,
     margin: 'auto',
-    width: 80,
-    height: 80,
+    width: 40,
+    height: 40,
     borderRadius: 90,
     backgroundColor: '#d2d2d2'
   },
@@ -24,12 +24,16 @@ const styles = StyleSheet.create({
     margin: 'auto',
     top: 0,
     bottom: 0,
-    height: 40,
-    width: 40
+    height: 15,
+    width: 15
   },
   title: {
     textAlign: 'center',
-    height: 80
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    height: 20,
+    fontSize: 16,
+    overflow: 'hidden'
   },
   buttons: {
     textAlign: 'center'
@@ -37,8 +41,15 @@ const styles = StyleSheet.create({
   icon: {
     fill: '#333'
   },
+  sounds: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
   sound: {
-    height: 400
+    margin: 20,
+    width: 150,
+
+    overflow: 'hidden'
   }
 })
 
@@ -49,5 +60,6 @@ export default {
   title: () => css(styles.title),
   buttons: () => css(styles.buttons),
   icon: () => css(styles.icon),
+  sounds: () => css(styles.sounds),
   sound: () => css(styles.sound)
 }

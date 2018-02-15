@@ -10,12 +10,12 @@ export default (state, action) => {
     sound.uuid = uuid()
     sound.src = sound.location.replace('/home/luke/Projects/blank-string/soundboard/public', '')
     row.push(sound)
-    if (row.length === 5) {
+    if (row.length === 4) {
       rows.push(row)
       row = []
     }
   })
   if (row.length > 0) rows.push(row)
-  state.soundboard.sounds = rows
+  state.soundboard.sounds = sounds
   return state
 }

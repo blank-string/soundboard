@@ -11,15 +11,15 @@ const Soundboard = ({soundboard}) => {
   return <section className='section'>
     <audio id='audio' />
     <div className='container'>
-      {soundboard.sounds.map(row => <div className='columns'>{
-        row.map(sound => <div className={`column ${styles.sound()}`}>
+      <div className={styles.sounds()}>
+        {soundboard.sounds.map(sound => <div key={sound.uuid} className={styles.sound()}>
           <audio id={sound.uuid} src={sound.src} />
           <div className={styles.imageContainer()}>
             <figure className={`image ${styles.image()}`}>
               <Audio className={styles.audio()} />
             </figure>
           </div>
-          <h1 className={`title ${styles.title()}`}>{sound.name}</h1>
+          <h1 className={`subtitle ${styles.title()}`}>{sound.name}</h1>
           <div className={styles.buttons()}>
             <button className='button' onClick={() => {
               let audio = document.getElementById('audio')
@@ -60,8 +60,8 @@ const Soundboard = ({soundboard}) => {
             </button>
           </div>
         </div>)
-      }</div>
-      )}
+        }
+      </div>
     </div>
   </section>
 }
