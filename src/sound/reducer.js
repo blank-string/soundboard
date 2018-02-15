@@ -6,10 +6,18 @@ export default (state, action) => {
   }
 
   if (action.type === '@@router/LOCATION_CHANGE') {
-    state.sound = {
-      img: '/fallback.png',
-      name: '',
-      location: ''
+    const pathname = action.payload.pathname
+    let uuid = pathname.replace('/sound/', '')
+    if (uuid === '/' || uuid === '/sound') uuid = 'new'
+    if (uuid === 'new') {
+      state.sound = {
+        img: '/fallback.png',
+        name: '',
+        location: ''
+      }
+    } else {
+      const sound = window.api.getSound(uuid)
+      state.sound = sound
     }
   }
   if (action.type === '@@sound/UPDATE_NAME') state.sound.name = action.payload.name

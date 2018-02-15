@@ -20,7 +20,7 @@ const API = () => {
       if (sounds === null) sounds = db.addCollection('sounds')
 
       const found = sounds.findOne({
-        name: sound.name
+        uuid: sound.uuid
       })
 
       if (found === null) {
@@ -47,6 +47,10 @@ const API = () => {
         })
       }
       return data
+    },
+    getSound (uuid) {
+      const sounds = db.getCollection('sounds')
+      return sounds.findOne({uuid})
     }
   }
 }
