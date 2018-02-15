@@ -30,8 +30,8 @@ const API = () => {
         found.name = sound.name
         found.location = sound.location
         found.img = sound.img
-        found.index = sound.index
-        found.keyBinding = sound.keyBinding
+        found.position = sound.position
+        found.keyboardShortcut = sound.keyboardShortcut
         sounds.update(found)
       }
 
