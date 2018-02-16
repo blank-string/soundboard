@@ -10,14 +10,14 @@ import Location from './location'
 import Save from './save'
 import Delete from './delete'
 
-const Sound = ({sound, updateName, updateFile, updateImage, saveSound, removeSound}) => <section className='section'>
+const Sound = ({sound, updateImage, updateName, updateTags, updateCategory, updateKeyboardShortcut, updateFile, saveSound, removeSound}) => <section className='section'>
   <div className='container'>
     <Image updateImage={updateImage} name={sound.name} img={sound.img} />
     <Name updateName={updateName} name={sound.name} />
-    <Tags />
-    <Category />
-    <KeyboardShortcut />
-    <Location updateFile={updateFile} />
+    <Tags updateTags={updateTags} tags={sound.tags} />
+    <Category updateCategory={updateCategory} category={sound.category} index={sound.index} />
+    <KeyboardShortcut updateKeyboardShortcut={updateKeyboardShortcut} shortcut={sound.shortcut} />
+    <Location updateFile={updateFile} location={sound.location} />
     <Save saveSound={saveSound} />
     <Delete removeSound={removeSound} sound={sound} />
   </div>
@@ -29,7 +29,10 @@ Sound.propTypes = {
   updateFile: PropTypes.func.isRequired,
   updateImage: PropTypes.func.isRequired,
   saveSound: PropTypes.func.isRequired,
-  removeSound: PropTypes.func.isRequired
+  removeSound: PropTypes.func.isRequired,
+  updateTags: PropTypes.func.isRequired,
+  updateCategory: PropTypes.func.isRequired,
+  updateKeyboardShortcut: PropTypes.func.isRequired
 }
 
 export default Sound

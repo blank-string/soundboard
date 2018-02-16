@@ -25,6 +25,9 @@ export default (dispatch, {history}) => {
     removeSound: sound => {
       window.api.removeSound(sound.uuid)
       history.push('/')
-    }
+    },
+    updateTags: tags => {},
+    updateCategory: (category, index) => {},
+    updateKeyboardShortcut: keyboardShortcut => {}
   }
 }
