@@ -67,6 +67,12 @@ const styles = StyleSheet.create({
   },
   saveImage: {
     fill: '#fff'
+  },
+  tags: {
+    marginLeft: '5%'
+  },
+  newTag: {
+    width: 100
   }
 })
 
@@ -78,5 +84,7 @@ export default {
   newImageAdd: () => css(styles.newImageAdd),
   name: () => css(styles.name),
   save: () => css(styles.save),
-  saveImage: () => css(styles.saveImage)
+  saveImage: () => css(styles.saveImage),
+  tags: () => css(styles.tags),
+  newTag: () => css(styles.newTag)
 }

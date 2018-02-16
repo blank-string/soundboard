@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const KeyboardShortcut = ({updateKeyboardShortcut, keyboardShortcut}) => <div>
-    KeyboardShortcut
+  <input className='input' type='text' placeholder='Keyboard Shortcut' />
 </div>
 
 KeyboardShortcut.propTypes = {
