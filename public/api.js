@@ -32,6 +32,7 @@ const API = () => {
         found.img = sound.img
         found.position = sound.position
         found.keyboardShortcut = sound.keyboardShortcut
+        found.tags = sound.tags
         sounds.update(found)
       }
 
@@ -44,6 +45,7 @@ const API = () => {
       if (process.env.NODE) {
         data.forEach(sound => {
           sound.location = sound.location.replace(path.join(process.cwd(), 'public'), '')
+          sound.img = sound.img.replace(path.join(process.cwd(), 'public'), '')
         })
       }
       return data

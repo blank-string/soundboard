@@ -5,18 +5,28 @@ import Add from '../icons/add'
 import Save from '../icons/save'
 import Delete from '../icons/delete'
 
-const Sound = ({sound, updateName, updateFile, saveSound}) => <section className='section'>
+const Sound = ({sound, updateName, updateFile, updateImage, saveSound}) => <section className='section'>
   <div className='container'>
-    <div className={styles.newImage()}>
-      <Camera className={styles.newImageCamera()} />
-      <Add className={styles.newImageAdd()} />
+    <input id='image' type='file' onChange={(evt) => updateImage(evt.target.files[0])} />
+    {sound.img ? <div className={styles.newImage()} onClick={() => document.getElementById('image').click()}>
+      <img alt={sound.name} src={sound.img} />
     </div>
+      : <div className={styles.newImage()} onClick={() => document.getElementById('image').click()}>
+        <Camera className={styles.newImageCamera()} />
+        <Add className={styles.newImageAdd()} />
+      </div>
+    }
     <input
       onChange={(evt) => updateName(evt.target.value)}
       className={`input ${styles.name()}`}
       type='text'
       value={sound.name}
       placeholder='Sound Name'
+    />
+    <input
+      className={`input ${styles.name()}`}
+      type='text'
+      placeholder='Tag'
     />
     <div className='select'>
       <select>

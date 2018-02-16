@@ -12,6 +12,12 @@ export default (dispatch) => {
         payload: {file}
       })
     },
+    updateImage: file => {
+      dispatch({
+        type: '@@sound/UPDATE_IMAGE',
+        payload: {file}
+      })
+    },
     saveSound: sound => {
       window.api.saveSound(sound)
     }

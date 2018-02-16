@@ -21,6 +21,7 @@ export default (state, action) => {
     }
   }
   if (action.type === '@@sound/UPDATE_NAME') state.sound.name = action.payload.name
+  if (action.type === '@@sound/UPDATE_IMAGE') state.sound.img = action.payload.file.path
   if (action.type === '@@sound/UPDATE_FILE') state.sound.location = action.payload.file.path
 
   return state
