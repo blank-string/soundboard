@@ -27,7 +27,8 @@ export default (dispatch, {history}) => {
       history.push('/')
     },
     updateTags: tags => {},
-    updateCategory: (category, index) => {},
+    updateCategory: category => {},
+    updateIndex: index => {},
     updateKeyboardShortcut: keyboardShortcut => {}
   }
 }
