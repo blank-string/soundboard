@@ -7,9 +7,12 @@ import Delete from '../icons/delete'
 
 const Sound = ({sound, updateName, updateFile, updateImage, saveSound, removeSound}) => <section className='section'>
   <div className='container'>
-    <input id='image' type='file' onChange={(evt) => updateImage(evt.target.files[0])} accept='image/*' />
-    {sound.img ? <div className={styles.imageContainer()} onClick={() => document.getElementById('image').click()}>
-      <img className={styles.image()} alt={sound.name} src={sound.img} />
+    <input id='image-file' type='file' onChange={(evt) => updateImage(evt.target.files[0])} />
+    {sound.img ? <div className={styles.imageContainer()} onClick={() => document.getElementById('image-file').click()}>
+      <img id='img' className={styles.image()} alt={sound.name} src={sound.img} onError={() => {
+        const image = document.getElementById('img')
+        image.src = '/images/audio.svg'
+      }} />
     </div>
       : <div className={styles.imageContainer()} onClick={() => document.getElementById('image').click()}>
         <Camera className={styles.newImageCamera()} />

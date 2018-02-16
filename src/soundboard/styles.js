@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 45
   },
-  image: {
+  figure: {
     position: 'absolute',
     left: 0,
     right: 0,
@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 90,
-    backgroundColor: '#d2d2d2'
+    backgroundColor: '#d2d2d2',
+    overflow: 'hidden'
   },
   audio: {
     fill: '#333',
@@ -26,6 +27,17 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: 15,
     width: 15
+  },
+  image: {
+    fill: '#333',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    margin: 'auto',
+    top: 0,
+    bottom: 0,
+    height: 30,
+    width: 'auto'
   },
   title: {
     textAlign: 'center',
@@ -59,6 +71,7 @@ const styles = StyleSheet.create({
 
 export default {
   imageContainer: () => css(styles.imageContainer),
+  figure: () => css(styles.figure),
   image: () => css(styles.image),
   audio: () => css(styles.audio),
   title: () => css(styles.title),

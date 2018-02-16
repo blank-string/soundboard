@@ -14,8 +14,8 @@ const Soundboard = ({soundboard}) => <section className='section'>
       {soundboard.sounds.map(sound => <div key={sound.uuid} className={styles.sound(sound.exists)}>
         <audio id={sound.uuid} src={sound.location} />
         <div className={styles.imageContainer()}>
-          <figure className={`image ${styles.image()}`}>
-            <Audio className={styles.audio()} />
+          <figure className={`image ${styles.figure()}`}>
+            {sound.img ? <img className={styles.image()} alt={sound.title} src={sound.img} /> : <Audio className={styles.audio()} />}
           </figure>
         </div>
         <h1 className={`subtitle ${styles.title()}`}>{sound.name}</h1>

@@ -48,8 +48,7 @@ const API = () => {
       if (sounds === null) sounds = db.addCollection('sounds')
       const data = sounds.data
       data.forEach(sound => {
-        const location = sound.location
-        sound.exists = fs.existsSync(location)
+        sound.exists = fs.existsSync(sound.location)
       })
       if (process.env.NODE) {
         data.forEach(sound => {
