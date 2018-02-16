@@ -1,77 +1,35 @@
 import React from 'react'
-import styles from './styles'
-import Camera from '../icons/camera'
-import Add from '../icons/add'
-import Save from '../icons/save'
-import Delete from '../icons/delete'
+import PropTypes from 'prop-types'
+
+import Image from './image'
+import Name from './name'
+import Tags from './tags'
+import Category from './category'
+import KeyboardShortcut from './keyboard-shortcut'
+import Location from './location'
+import Save from './save'
+import Delete from './delete'
 
 const Sound = ({sound, updateName, updateFile, updateImage, saveSound, removeSound}) => <section className='section'>
   <div className='container'>
-    <input id='image-file' type='file' onChange={(evt) => updateImage(evt.target.files[0])} />
-    {sound.img ? <div className={styles.imageContainer()} onClick={() => document.getElementById('image-file').click()}>
-      <img id='img' className={styles.image()} alt={sound.name} src={sound.img} onError={() => {
-        const image = document.getElementById('img')
-        image.src = '/images/audio.svg'
-      }} />
-    </div>
-      : <div className={styles.imageContainer()} onClick={() => document.getElementById('image').click()}>
-        <Camera className={styles.newImageCamera()} />
-        <Add className={styles.newImageAdd()} />
-      </div>
-    }
-    <input
-      onChange={(evt) => updateName(evt.target.value)}
-      className={`input ${styles.name()}`}
-      type='text'
-      value={sound.name}
-      placeholder='Sound Name'
-    />
-    <input
-      className={`input ${styles.name()}`}
-      type='text'
-      placeholder='Tag'
-    />
-    <div className='select'>
-      <select>
-        <option>Category</option>
-        <option>New Category</option>
-      </select>
-    </div>
-    <div className='select'>
-      <select>
-        <option>Position</option>
-        <option>0</option>
-      </select>
-    </div>
-    <input
-      className={`input ${styles.name()}`}
-      type='text'
-      value={sound.keyboardShortcut}
-      placeholder='Keyboard Shortcut'
-    />
-    <input
-      onChange={evt => updateFile(evt.target.files[0])}
-      className={`input ${styles.name()}`}
-      type='file'
-      placeholder='Sound Location'
-      accept='.mp3'
-    />
-    <button onClick={() => saveSound(sound)} className={`button is-large is-info ${styles.save()}`}>
-      <span className='icon'>
-        <Save className={styles.saveImage()} />
-      </span>
-      <span>Save</span>
-    </button>
-    {
-      sound.new ? null
-        : <button onClick={() => removeSound(sound)} className={`button is-large is-danger ${styles.save()}`}>
-          <span className='icon'>
-            <Delete className={styles.saveImage()} />
-          </span>
-          <span>Delete</span>
-        </button>
-    }
+    <Image updateImage={updateImage} name={sound.name} img={sound.img} />
+    <Name updateName={updateName} name={sound.name} />
+    <Tags />
+    <Category />
+    <KeyboardShortcut />
+    <Location updateFile={updateFile} />
+    <Save saveSound={saveSound} />
+    <Delete removeSound={removeSound} sound={sound} />
   </div>
 </section>
+
+Sound.propTypes = {
+  sound: PropTypes.object.isRequired,
+  updateName: PropTypes.func.isRequired,
+  updateFile: PropTypes.func.isRequired,
+  updateImage: PropTypes.func.isRequired,
+  saveSound: PropTypes.func.isRequired,
+  removeSound: PropTypes.func.isRequired
+}
 
 export default Sound

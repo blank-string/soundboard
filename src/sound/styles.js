@@ -1,6 +1,9 @@
 import {css, StyleSheet} from 'aphrodite'
 
 const styles = StyleSheet.create({
+  hiddenFile: {
+    display: 'none'
+  },
   newIamge: {
     overflow: 'hidden',
     backgroundColor: '#e0e0e0',
@@ -68,6 +71,7 @@ const styles = StyleSheet.create({
 })
 
 export default {
+  hiddenFile: () => css(styles.hiddenFile),
   imageContainer: () => css(styles.newIamge),
   image: () => css(styles.image),
   newImageCamera: () => css(styles.newImageCamera),
