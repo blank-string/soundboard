@@ -5,13 +5,13 @@ import Add from '../icons/add'
 import Save from '../icons/save'
 import Delete from '../icons/delete'
 
-const Sound = ({sound, updateName, updateFile, updateImage, saveSound}) => <section className='section'>
+const Sound = ({sound, updateName, updateFile, updateImage, saveSound, removeSound}) => <section className='section'>
   <div className='container'>
-    <input id='image' type='file' onChange={(evt) => updateImage(evt.target.files[0])} />
-    {sound.img ? <div className={styles.newImage()} onClick={() => document.getElementById('image').click()}>
-      <img alt={sound.name} src={sound.img} />
+    <input id='image' type='file' onChange={(evt) => updateImage(evt.target.files[0])} accept='image/*' />
+    {sound.img ? <div className={styles.imageContainer()} onClick={() => document.getElementById('image').click()}>
+      <img className={styles.image()} alt={sound.name} src={sound.img} />
     </div>
-      : <div className={styles.newImage()} onClick={() => document.getElementById('image').click()}>
+      : <div className={styles.imageContainer()} onClick={() => document.getElementById('image').click()}>
         <Camera className={styles.newImageCamera()} />
         <Add className={styles.newImageAdd()} />
       </div>
@@ -59,12 +59,15 @@ const Sound = ({sound, updateName, updateFile, updateImage, saveSound}) => <sect
       </span>
       <span>Save</span>
     </button>
-    <button onClick={() => saveSound(sound)} className={`button is-large is-danger ${styles.save()}`}>
-      <span className='icon'>
-        <Delete className={styles.saveImage()} />
-      </span>
-      <span>Delete</span>
-    </button>
+    {
+      sound.new ? null
+        : <button onClick={() => removeSound(sound)} className={`button is-large is-danger ${styles.save()}`}>
+          <span className='icon'>
+            <Delete className={styles.saveImage()} />
+          </span>
+          <span>Delete</span>
+        </button>
+    }
   </div>
 </section>
 

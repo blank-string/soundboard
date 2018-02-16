@@ -11,7 +11,7 @@ const Soundboard = ({soundboard}) => <section className='section'>
   <audio id='audio' />
   <div className='container'>
     <div className={styles.sounds()}>
-      {soundboard.sounds.map(sound => <div key={sound.uuid} className={styles.sound()}>
+      {soundboard.sounds.map(sound => <div key={sound.uuid} className={styles.sound(sound.exists)}>
         <audio id={sound.uuid} src={sound.location} />
         <div className={styles.imageContainer()}>
           <figure className={`image ${styles.image()}`}>

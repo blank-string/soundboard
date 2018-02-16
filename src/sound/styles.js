@@ -29,6 +29,18 @@ const styles = StyleSheet.create({
     fill: '#333',
     transform: 'translateY(-10px)'
   },
+  image: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    margin: 'auto',
+    top: 0,
+    bottom: 0,
+    height: 100,
+    width: 'auto',
+    fill: '#333',
+    transform: 'translateY(-10px)'
+  },
   newImageAdd: {
     fill: '#3273dc',
     position: 'absolute',
@@ -56,7 +68,8 @@ const styles = StyleSheet.create({
 })
 
 export default {
-  newImage: () => css(styles.newIamge),
+  imageContainer: () => css(styles.newIamge),
+  image: () => css(styles.image),
   newImageCamera: () => css(styles.newImageCamera),
   newImageAdd: () => css(styles.newImageAdd),
   name: () => css(styles.name),

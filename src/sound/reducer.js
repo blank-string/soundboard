@@ -1,6 +1,7 @@
 export default (state, action) => {
   state.sound = state.sound || {
-    img: '/fallback.png',
+    new: false,
+    img: '',
     name: '',
     location: ''
   }
@@ -11,7 +12,8 @@ export default (state, action) => {
     if (uuid === '/' || uuid === '/sound') uuid = 'new'
     if (uuid === 'new') {
       state.sound = {
-        img: '/fallback.png',
+        new: true,
+        img: '',
         name: '',
         location: ''
       }

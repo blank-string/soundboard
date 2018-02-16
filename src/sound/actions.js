@@ -1,4 +1,4 @@
-export default (dispatch) => {
+export default (dispatch, {history}) => {
   return {
     updateName: name => {
       dispatch({
@@ -20,6 +20,11 @@ export default (dispatch) => {
     },
     saveSound: sound => {
       window.api.saveSound(sound)
+      history.push('/')
+    },
+    removeSound: sound => {
+      window.api.removeSound(sound.uuid)
+      history.push('/')
     }
   }
 }

@@ -46,9 +46,14 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   sound: {
+    padding: 5,
     margin: 20,
-    width: 150,
-    overflow: 'hidden'
+    width: 160,
+    overflow: 'hidden',
+    borderRadius: 4
+  },
+  soundError: {
+    backgroundColor: 'rgba(232, 44, 12, 0.7)'
   }
 })
 
@@ -60,5 +65,5 @@ export default {
   buttons: () => css(styles.buttons),
   icon: () => css(styles.icon),
   sounds: () => css(styles.sounds),
-  sound: () => css(styles.sound)
+  sound: (exists) => `${css(styles.sound)} ${exists ? '' : css(styles.soundError)}`
 }
