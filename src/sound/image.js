@@ -29,6 +29,7 @@ ExistingImage.propTypes = {
 
 const Image = ({updateImage, name, img}) => <div>
   <input
+    accept='image/*'
     className={styles.hiddenFile()}
     id='image-file'
     type='file'

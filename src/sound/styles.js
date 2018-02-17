@@ -55,11 +55,6 @@ const styles = StyleSheet.create({
     margin: 'auto',
     transform: 'translateY(26px)'
   },
-  name: {
-    width: '90%',
-    marginLeft: '5%',
-    marginTop: 20
-  },
   save: {
     width: '90%',
     marginLeft: '5%',
@@ -68,11 +63,19 @@ const styles = StyleSheet.create({
   saveImage: {
     fill: '#fff'
   },
-  tags: {
-    marginLeft: '5%'
+  tag: {
+    display: 'inline-block',
+    marginRight: 5
   },
-  newTag: {
-    width: 100
+  addTag: {
+    display: 'inline-flex',
+    marginRight: 5
+  },
+  deleteTag: {
+    marginLeft: 0,
+    ':hover': {
+      backgroundColor: '#ff2b56'
+    }
   }
 })
 
@@ -82,9 +85,9 @@ export default {
   image: () => css(styles.image),
   newImageCamera: () => css(styles.newImageCamera),
   newImageAdd: () => css(styles.newImageAdd),
-  name: () => css(styles.name),
   save: () => css(styles.save),
   saveImage: () => css(styles.saveImage),
-  tags: () => css(styles.tags),
-  newTag: () => css(styles.newTag)
+  tag: () => css(styles.tag),
+  addTag: () => css(styles.addTag),
+  deleteTag: () => css(styles.deleteTag)
 }

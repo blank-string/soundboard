@@ -14,10 +14,10 @@ const Sound = ({sound, updateImage, updateName, updateTags, updateCategory, upda
   <div className='container'>
     <Image updateImage={updateImage} name={sound.name} img={sound.img} />
     <Name updateName={updateName} name={sound.name} />
+    <Location updateFile={updateFile} location={sound.location} />
     <Tags updateTags={updateTags} tags={sound.tags} />
     <Category updateCategory={updateCategory} updateIndex={updateIndex} category={sound.category} index={sound.index} />
     <KeyboardShortcut updateKeyboardShortcut={updateKeyboardShortcut} shortcut={sound.shortcut} />
-    <Location updateFile={updateFile} location={sound.location} />
     <Save saveSound={saveSound} />
     <Delete removeSound={removeSound} sound={sound} />
   </div>
