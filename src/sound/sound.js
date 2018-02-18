@@ -10,21 +10,42 @@ import Location from './location'
 import Save from './save'
 import Delete from './delete'
 
-const Sound = ({sound, updateImage, updateName, updateTags, updateCategory, updateIndex, updateKeyboardShortcut, updateFile, saveSound, removeSound}) => <section className='section'>
+const Sound = ({
+  sound,
+  categories,
+  updateImage,
+  updateName,
+  updateTags,
+  updateCategory,
+  showAllCategories,
+  hideAllCategories,
+  updateIndex,
+  updateKeyboardShortcut,
+  updateFile,
+  saveSound,
+  removeSound
+}) => <section className='section'>
   <div className='container'>
     <Image updateImage={updateImage} name={sound.name} img={sound.img} />
     <Name updateName={updateName} name={sound.name} />
     <Location updateFile={updateFile} location={sound.location} />
     <Tags updateTags={updateTags} tags={sound.tags} />
-    <Category updateCategory={updateCategory} updateIndex={updateIndex} category={sound.category} index={sound.index} />
+    <Category
+      categories={categories}
+      updateCategory={updateCategory}
+      category={sound.category}
+      showAllCategories={showAllCategories}
+      hideAllCategories={hideAllCategories}
+    />
     <KeyboardShortcut updateKeyboardShortcut={updateKeyboardShortcut} shortcut={sound.shortcut} />
-    <Save saveSound={saveSound} />
+    <Save saveSound={saveSound} sound={sound} />
     <Delete removeSound={removeSound} sound={sound} />
   </div>
 </section>
 
 Sound.propTypes = {
   sound: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired,
   updateName: PropTypes.func.isRequired,
   updateFile: PropTypes.func.isRequired,
   updateImage: PropTypes.func.isRequired,

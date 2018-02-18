@@ -3,14 +3,18 @@ import PropTypes from 'prop-types'
 import styles from './styles'
 import DeleteIcon from '../icons/delete'
 
-const DeleteButton = ({removeSound, sound}) => <button
-  onClick={() => removeSound(sound)}
-  className={`button is-large is-danger ${styles.save()}`}>
-  <span className='icon'>
-    <DeleteIcon className={styles.saveImage()} />
-  </span>
-  <span>Delete</span>
-</button>
+const DeleteButton = ({removeSound, sound}) => <div className='field'>
+  <div className='control'>
+    <button
+      onClick={() => removeSound(sound)}
+      className='button is-danger is-fullwidth'>
+      <span className='icon'>
+        <DeleteIcon className={styles.saveImage()} />
+      </span>
+      <span>Delete</span>
+    </button>
+  </div>
+</div>
 
 DeleteButton.propTypes = {
   removeSound: PropTypes.func.isRequired,

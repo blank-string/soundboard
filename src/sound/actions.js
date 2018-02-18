@@ -27,7 +27,22 @@ export default (dispatch, {history}) => {
       history.push('/')
     },
     updateTags: tags => {},
-    updateCategory: category => {},
+    updateCategory: category => {
+      dispatch({
+        type: '@@sound/UPDATE_CATEGORY',
+        payload: {category}
+      })
+    },
+    showAllCategories: () => {
+      dispatch({
+        type: '@@sound/SHOW_ALL_CATEGORIES'
+      })
+    },
+    hideAllCategories: () => {
+      dispatch({
+        type: '@@sound/HIDE_ALL_CATEGORIES'
+      })
+    },
     updateIndex: index => {},
     updateKeyboardShortcut: keyboardShortcut => {}
   }

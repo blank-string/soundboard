@@ -31,13 +31,13 @@ const Tags = ({updateTags, tags}) => <div className='field'>
   <div className={styles.tag()}>
     <div className='tags has-addons'>
       <span className='tag is-info'>Tag 4</span>
-      <a className={`tag is-delete is-danger ${styles.deleteTag()}`} />
+      <button className={`tag is-delete is-danger ${styles.deleteTag()}`} />
     </div>
   </div>
   <div className={styles.tag()}>
     <div className='tags has-addons'>
       <span className='tag is-info'>Tag 5</span>
-      <a className={`tag is-delete is-danger ${styles.deleteTag()}`} />
+      <button className={`tag is-delete is-danger ${styles.deleteTag()}`} />
     </div>
   </div>
 </div>

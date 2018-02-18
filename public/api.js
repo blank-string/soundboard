@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const Loki = require('lokijs')
 const uuid = require('uuid/v4')
+const fuzzy = require('fuzzy')
 
 const API = () => {
   const db = new Loki(process.cwd() + '/.soundboard/soundboard.json')
@@ -20,8 +21,10 @@ const API = () => {
       db.saveDatabase()
     },
     saveSound (sound) {
-      let sounds = db.getCollection('sounds')
-      if (sounds === null) sounds = db.addCollection('sounds')
+      const sounds = db.addCollection('sounds')
+      const categories = db.addCollection('categories')
+      const tags = db.addCollection('tags')
+      const keyboard = db.addCollection('keyboard')
 
       const found = sounds.findOne({
         uuid: sound.uuid
@@ -38,7 +41,19 @@ const API = () => {
         found.position = sound.position
         found.keyboardShortcut = sound.keyboardShortcut
         found.tags = sound.tags
+        found.category = sound.category
         sounds.update(found)
+      }
+
+      if (sound.category) {
+        const category = categories.findOne({
+          value: sound.category
+        })
+        if (category === null) {
+          categories.insert({
+            value: sound.category
+          })
+        }
       }
 
       db.saveDatabase()
@@ -70,6 +85,13 @@ const API = () => {
       const sound = sounds.findOne({uuid})
       sounds.remove(sound)
       db.saveDatabase()
+    },
+    getCategories: value => {
+      if (value === null) return []
+      if (value === '') return []
+      const categories = db.getCollection('categories').data.map(d => d.value)
+      if (typeof value === 'undefined') return categories
+      return fuzzy.filter(value, categories).map(d => d.string)
     }
   }
 }

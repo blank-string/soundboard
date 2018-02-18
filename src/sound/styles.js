@@ -55,11 +55,6 @@ const styles = StyleSheet.create({
     margin: 'auto',
     transform: 'translateY(26px)'
   },
-  save: {
-    width: '90%',
-    marginLeft: '5%',
-    marginTop: 20
-  },
   saveImage: {
     fill: '#fff'
   },
@@ -72,9 +67,10 @@ const styles = StyleSheet.create({
     marginRight: 5
   },
   deleteTag: {
-    marginLeft: 0,
+    border: 0,
     ':hover': {
-      backgroundColor: '#ff2b56'
+      backgroundColor: '#ff2b56',
+      cursor: 'pointer'
     }
   }
 })
@@ -85,7 +81,6 @@ export default {
   image: () => css(styles.image),
   newImageCamera: () => css(styles.newImageCamera),
   newImageAdd: () => css(styles.newImageAdd),
-  save: () => css(styles.save),
   saveImage: () => css(styles.saveImage),
   tag: () => css(styles.tag),
   addTag: () => css(styles.addTag),
