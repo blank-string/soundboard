@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Audio from '../icons/audio'
 
 const Location = ({updateFile, location}) => <div className='field'>
   <div className='control'>
@@ -9,7 +10,7 @@ const Location = ({updateFile, location}) => <div className='field'>
         <input accept='audio/*' className='file-input' type='file' onChange={evt => updateFile(evt.target.files[0])} />
         <span className='file-cta'>
           <span className='file-icon'>
-            <i className='fas fa-upload' />
+            <Audio />
           </span>
           <span className='file-label'>Choose a file…</span>
         </span>
