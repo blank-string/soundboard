@@ -56,6 +56,13 @@ const API = () => {
         }
       }
 
+      categories.removeWhere(({value}) => {
+        const count = sounds.find({
+          category: value
+        }).length
+        return count === 0
+      })
+
       db.saveDatabase()
     },
     getSounds () {
