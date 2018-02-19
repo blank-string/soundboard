@@ -53,7 +53,7 @@ export default (state, action) => {
     let keys = action.payload.keys
     if (keys.key === 'Backspace' || keys.key === 'Escape' || keys.key === 'Delete') keys = {}
     else if (!validKeys.includes(keys.key)) keys = state.sound.keyboardShortcut || {}
-    state.sound.unavailableKeyboardShortcut = !window.api.keyboardShortcutIsAvailable()
+    state.sound.unavailableKeyboardShortcut = !window.api.keyboardShortcutIsAvailable(keys)
     state.sound.keyboardShortcut = keys
   }
   return state

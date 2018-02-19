@@ -26,8 +26,6 @@ const API = () => {
       const tags = db.addCollection('tags')
       const keyboard = db.addCollection('keyboard')
 
-      if (!this.keyboardShortcutIsAvailable(sound.keyboardShortcut)) sound.keyboardShortcut = {}
-
       const found = sounds.findOne({
         uuid: sound.uuid
       })
@@ -35,13 +33,16 @@ const API = () => {
       if (found === null) {
         sound.uuid = uuid()
         delete sound.new
+        if (!this.keyboardShortcutIsAvailable(sound.keyboardShortcut)) sound.keyboardShortcut = {}
         sounds.insert(sound)
       } else {
         found.name = sound.name
         found.location = sound.location
         found.img = sound.img
         found.position = sound.position
-        found.keyboardShortcut = sound.keyboardShortcut
+        if (found.keyboardShortcut !== sound.keyboardShortcut && this.keyboardShortcutIsAvailable(sound.keyboardShortcut)) {
+          found.keyboardShortcut = sound.keyboardShortcut
+        }
         found.tags = sound.tags
         found.category = sound.category
         sounds.update(found)
@@ -57,6 +58,21 @@ const API = () => {
           })
         }
       }
+
+      if (this.keyboardShortcutToString(sound.keyboardShortcut) !== '' && this.keyboardShortcutIsAvailable(sound.keyboardShortcut)) {
+        keyboard.insert(sound.keyboardShortcut)
+      }
+
+      keyboard.removeWhere(keys => {
+        const count = sounds.where(s => {
+          return s.keyboardShortcut.ctrlKey === keys.ctrlKey &&
+            s.keyboardShortcut.shiftKey === keys.shiftKey &&
+            s.keyboardShortcut.altKey === keys.altKey &&
+            s.keyboardShortcut.metaKey === keys.metaKey &&
+            s.keyboardShortcut.key === keys.key
+        }).length
+        return count === 0
+      })
 
       categories.removeWhere(({value}) => {
         const count = sounds.find({
@@ -113,7 +129,13 @@ const API = () => {
     },
     keyboardShortcutIsAvailable: keys => {
       const keyboard = db.addCollection('keyboard')
-      return keyboard.findOne(keys) === null
+      return keyboard.findOne({
+        ctrlKey: keys.ctrlKey,
+        shiftKey: keys.shiftKey,
+        altKey: keys.altKey,
+        metaKey: keys.metaKey,
+        key: keys.key
+      }) === null
     },
     keyboardShortcutToString: keys => {
       let shortcut = []

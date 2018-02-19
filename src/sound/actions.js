@@ -44,7 +44,7 @@ export default (dispatch, {history}) => {
       })
     },
     updateIndex: index => {},
-    updateKeyboardShortcut: keys => {
+    updateKeyboardShortcut: (keys, sound) => {
       dispatch({
         type: '@@sound/KEYBOARD_SHORTCUT',
         payload: {
