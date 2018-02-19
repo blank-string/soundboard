@@ -6,7 +6,7 @@ import styles from './styles'
 
 const NewImage = () => <div
   className={styles.imageContainer()}
-  onClick={() => document.getElementById('image').click()}>
+  onClick={() => document.getElementById('image-file').click()}>
   <Camera className={styles.newImageCamera()} />
   <Add className={styles.newImageAdd()} />
 </div>

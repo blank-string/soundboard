@@ -26,6 +26,8 @@ const API = () => {
       const tags = db.addCollection('tags')
       const keyboard = db.addCollection('keyboard')
 
+      if (!this.keyboardShortcutIsAvailable(sound.keyboardShortcut)) sound.keyboardShortcut = {}
+
       const found = sounds.findOne({
         uuid: sound.uuid
       })
@@ -91,6 +93,15 @@ const API = () => {
       const sounds = db.getCollection('sounds')
       const sound = sounds.findOne({uuid})
       sounds.remove(sound)
+
+      const categories = db.addCollection('categories')
+      categories.removeWhere(({value}) => {
+        const count = sounds.find({
+          category: value
+        }).length
+        return count === 0
+      })
+
       db.saveDatabase()
     },
     getCategories: value => {
@@ -99,6 +110,19 @@ const API = () => {
       const categories = db.getCollection('categories').data.map(d => d.value)
       if (typeof value === 'undefined') return categories
       return fuzzy.filter(value, categories).map(d => d.string)
+    },
+    keyboardShortcutIsAvailable: keys => {
+      const keyboard = db.addCollection('keyboard')
+      return keyboard.findOne(keys) === null
+    },
+    keyboardShortcutToString: keys => {
+      let shortcut = []
+      if (keys.ctrlKey) shortcut.push('Ctrl')
+      if (keys.shiftKey) shortcut.push('Shift')
+      if (keys.altKey) shortcut.push('Alt')
+      if (keys.metaKey) shortcut.push('Meta')
+      if (keys.key !== 'Control' && keys.key !== 'Shift' && keys.key !== 'Alt' && keys.key !== 'Meta') shortcut.push(keys.key)
+      return shortcut.join(' + ')
     }
   }
 }

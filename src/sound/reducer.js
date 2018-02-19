@@ -1,10 +1,13 @@
+const validKeys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"£$%^&*()-_=+[{]};:\'@#~,<>/?\\|`¬'
+
 export default (state, action) => {
   state.sound = state.sound || {
     new: false,
     img: '',
     name: '',
     location: '',
-    category: ''
+    category: '',
+    keyboardShortcut: {}
   }
   state.categories = state.categories || []
 
@@ -20,7 +23,8 @@ export default (state, action) => {
         new: true,
         img: '',
         name: '',
-        location: ''
+        location: '',
+        keyboardShortcut: {}
       }
     } else if (pathname.startsWith('/sound/')) {
       const sound = window.api.getSound(uuid)
@@ -45,5 +49,12 @@ export default (state, action) => {
     state.categories = []
   }
 
+  if (action.type === '@@sound/KEYBOARD_SHORTCUT') {
+    let keys = action.payload.keys
+    if (keys.key === 'Backspace' || keys.key === 'Escape' || keys.key === 'Delete') keys = {}
+    else if (!validKeys.includes(keys.key)) keys = state.sound.keyboardShortcut || {}
+    state.sound.unavailableKeyboardShortcut = !window.api.keyboardShortcutIsAvailable()
+    state.sound.keyboardShortcut = keys
+  }
   return state
 }

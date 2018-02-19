@@ -37,7 +37,11 @@ const Sound = ({
       showAllCategories={showAllCategories}
       hideAllCategories={hideAllCategories}
     />
-    <KeyboardShortcut updateKeyboardShortcut={updateKeyboardShortcut} shortcut={sound.shortcut} />
+    <KeyboardShortcut
+      updateKeyboardShortcut={updateKeyboardShortcut}
+      keyboardShortcut={sound.keyboardShortcut}
+      unavailableKeyboardShortcut={sound.unavailableKeyboardShortcut}
+    />
     <Save saveSound={saveSound} sound={sound} />
     <Delete removeSound={removeSound} sound={sound} />
   </div>
