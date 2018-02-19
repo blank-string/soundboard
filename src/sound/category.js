@@ -20,6 +20,9 @@ const Category = ({
         if (category === '') showAllCategories()
         else updateCategory(category)
       }}
+      onKeyDown={evt => {
+        if (evt.key === 'Enter' || evt.key === 'Escape') hideAllCategories()
+      }}
       onChange={(evt) => {
         updateCategory(evt.target.value)
         if (evt.target.value === '') showAllCategories()
