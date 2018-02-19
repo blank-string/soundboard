@@ -1,13 +1,16 @@
 const validKeys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"£$%^&*()-_=+[{]};:\'@#~,<>/?\\|`¬'
 
 export default (state, action) => {
+  state.tags = state.tags || []
+  state.tag = state.tag || ''
   state.sound = state.sound || {
     new: false,
     img: '',
     name: '',
     location: '',
     category: '',
-    keyboardShortcut: {}
+    keyboardShortcut: {},
+    tags: []
   }
   state.categories = state.categories || []
 
@@ -24,7 +27,8 @@ export default (state, action) => {
         img: '',
         name: '',
         location: '',
-        keyboardShortcut: {}
+        keyboardShortcut: {},
+        tags: []
       }
     } else if (pathname.startsWith('/sound/')) {
       const sound = window.api.getSound(uuid)
@@ -56,5 +60,26 @@ export default (state, action) => {
     state.sound.unavailableKeyboardShortcut = !window.api.keyboardShortcutIsAvailable(keys)
     state.sound.keyboardShortcut = keys
   }
+
+  if (action.type === '@@sound/UPDATE_TAG') state.tag = action.payload.tag
+  if (action.type === '@@sound/ADD_TAG') {
+    state.tag = ''
+    state.tags.push(action.payload.tag)
+    state.tags = Array.from(
+      new Set(
+        state.tags
+          .map(tag => tag.toLowerCase())
+      )
+    ).filter(tag => tag !== '')
+  }
+
+  if (action.type === '@@sound/HIDE_ALL_TAGS') {
+    state.tags = []
+  }
+
+  if (action.type === '@@sound/SHOW_ALL_TAGS') {
+    state.tags = []
+  }
+
   return state
 }

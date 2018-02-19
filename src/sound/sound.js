@@ -15,7 +15,12 @@ const Sound = ({
   categories,
   updateImage,
   updateName,
-  updateTags,
+  tag,
+  tags,
+  addTag,
+  updateTag,
+  showAllTags,
+  hideAllTags,
   updateCategory,
   showAllCategories,
   hideAllCategories,
@@ -29,7 +34,15 @@ const Sound = ({
     <Image updateImage={updateImage} name={sound.name} img={sound.img} />
     <Name updateName={updateName} name={sound.name} />
     <Location updateFile={updateFile} location={sound.location} />
-    <Tags updateTags={updateTags} tags={sound.tags} />
+    <Tags
+      addTag={addTag}
+      updateTag={updateTag}
+      showAllTags={showAllTags}
+      hideAllTags={hideAllTags}
+      tag={tag}
+      tags={tags}
+      soundTags={sound.tags}
+    />
     <Category
       categories={categories}
       updateCategory={updateCategory}
@@ -55,7 +68,6 @@ Sound.propTypes = {
   updateImage: PropTypes.func.isRequired,
   saveSound: PropTypes.func.isRequired,
   removeSound: PropTypes.func.isRequired,
-  updateTags: PropTypes.func.isRequired,
   updateIndex: PropTypes.func.isRequired,
   updateCategory: PropTypes.func.isRequired,
   updateKeyboardShortcut: PropTypes.func.isRequired

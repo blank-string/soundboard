@@ -28,7 +28,28 @@ export default (dispatch, {history}) => {
       window.api.removeSound(sound.uuid)
       history.push('/')
     },
-    updateTags: tags => {},
+    updateTag: tag => {
+      dispatch({
+        type: '@@sound/UPDATE_TAG',
+        payload: {tag}
+      })
+    },
+    addTag: tag => {
+      dispatch({
+        type: '@@sound/ADD_TAG',
+        payload: {tag}
+      })
+    },
+    showAllTags: () => {
+      dispatch({
+        type: '@@sound/SHOW_ALL_TAGS'
+      })
+    },
+    hideAllTags: () => {
+      dispatch({
+        type: '@@sound/HIDE_ALL_TAGS'
+      })
+    },
     updateCategory: category => {
       dispatch({
         type: '@@sound/UPDATE_CATEGORY',
