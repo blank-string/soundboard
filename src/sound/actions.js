@@ -1,3 +1,5 @@
+const validKeys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"£$%^&*()-_=+[{]};:\'@#~,<>/?\\|`¬'
+
 export default (dispatch, {history}) => {
   return {
     updateName: name => {
@@ -44,13 +46,20 @@ export default (dispatch, {history}) => {
       })
     },
     updateIndex: index => {},
-    updateKeyboardShortcut: (keys, sound) => {
-      dispatch({
-        type: '@@sound/KEYBOARD_SHORTCUT',
-        payload: {
-          keys
-        }
-      })
+    updateKeyboardShortcut: (keys) => {
+      if (
+        validKeys.includes(keys.key) ||
+        keys.key === 'Backspace' ||
+        keys.key === 'Escape' ||
+        keys.key === 'Delete'
+      ) {
+        dispatch({
+          type: '@@sound/KEYBOARD_SHORTCUT',
+          payload: {
+            keys
+          }
+        })
+      }
     }
   }
 }
