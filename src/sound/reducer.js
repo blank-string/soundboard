@@ -18,6 +18,8 @@ export default (state, action) => {
     const pathname = action.payload.pathname
     if (pathname === '/') {
       state.categories = []
+      state.tag = ''
+      state.tags = []
     }
     let uuid = pathname.replace('/sound/', '')
     if (uuid === '/' || uuid === '/sound') uuid = 'new'
@@ -61,7 +63,10 @@ export default (state, action) => {
     state.sound.keyboardShortcut = keys
   }
 
-  if (action.type === '@@sound/UPDATE_TAG') state.tag = action.payload.tag
+  if (action.type === '@@sound/UPDATE_TAG') {
+    state.tag = action.payload.tag
+    state.tags = window.api.getTags(action.payload.tag)
+  }
   if (action.type === '@@sound/ADD_TAG') {
     state.tag = ''
     state.tags.push(action.payload.tag)
@@ -71,6 +76,9 @@ export default (state, action) => {
           .map(tag => tag.toLowerCase())
       )
     ).filter(tag => tag !== '')
+    state.sound.tags = Array.from(
+      new Set(state.sound.tags.concat(state.tags))
+    )
   }
 
   if (action.type === '@@sound/HIDE_ALL_TAGS') {
@@ -78,7 +86,7 @@ export default (state, action) => {
   }
 
   if (action.type === '@@sound/SHOW_ALL_TAGS') {
-    state.tags = []
+    state.tags = window.api.getTags()
   }
 
   return state

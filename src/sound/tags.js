@@ -12,7 +12,7 @@ const Tags = (
     soundTags
   }
 ) => {
-  console.log(tag, tags)
+  console.log('tag:', tag, 'tags:', tags, 'soundTags:', soundTags)
   return <div>
     <Suggestions
       update={updateTag}
