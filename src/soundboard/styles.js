@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     textOverflow: 'ellipsis',
     height: 20,
     fontSize: 16,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    marginBottom: 5
   },
   buttons: {
     textAlign: 'center'
@@ -58,14 +59,16 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   sound: {
-    padding: 5,
-    margin: 20,
+    margin: 15,
     width: 160,
     overflow: 'hidden',
     borderRadius: 4
   },
   soundError: {
     backgroundColor: 'rgba(232, 44, 12, 0.7)'
+  },
+  tag: {
+    marginRight: 1
   }
 })
 
@@ -78,5 +81,6 @@ export default {
   buttons: () => css(styles.buttons),
   icon: () => css(styles.icon),
   sounds: () => css(styles.sounds),
-  sound: (exists) => `${css(styles.sound)} ${exists ? '' : css(styles.soundError)}`
+  sound: (exists) => `${css(styles.sound)} ${exists ? '' : css(styles.soundError)}`,
+  tag: () => css(styles.tag)
 }
