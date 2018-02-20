@@ -18,6 +18,7 @@ const Sound = ({
   tag,
   tags,
   addTag,
+  removeTag,
   updateTag,
   showAllTags,
   hideAllTags,
@@ -36,6 +37,7 @@ const Sound = ({
     <Location updateFile={updateFile} location={sound.location} />
     <Tags
       addTag={addTag}
+      removeTag={removeTag}
       updateTag={updateTag}
       showAllTags={showAllTags}
       hideAllTags={hideAllTags}

@@ -59,14 +59,12 @@ const styles = StyleSheet.create({
     fill: '#fff'
   },
   tag: {
-    display: 'inline-block',
-    marginRight: 5
-  },
-  addTag: {
     display: 'inline-flex',
-    marginRight: 5
+    marginRight: 5,
+    marginBottom: 0
   },
   deleteTag: {
+    marginLeft: -1,
     border: 0,
     ':hover': {
       backgroundColor: '#ff2b56',
@@ -83,6 +81,5 @@ export default {
   newImageAdd: () => css(styles.newImageAdd),
   saveImage: () => css(styles.saveImage),
   tag: () => css(styles.tag),
-  addTag: () => css(styles.addTag),
   deleteTag: () => css(styles.deleteTag)
 }

@@ -16,11 +16,9 @@ export default (state, action) => {
 
   if (action.type === '@@router/LOCATION_CHANGE') {
     const pathname = action.payload.pathname
-    if (pathname === '/') {
-      state.categories = []
-      state.tag = ''
-      state.tags = []
-    }
+    state.categories = []
+    state.tag = ''
+    state.tags = []
     let uuid = pathname.replace('/sound/', '')
     if (uuid === '/' || uuid === '/sound') uuid = 'new'
     if (uuid === 'new') {
@@ -67,18 +65,22 @@ export default (state, action) => {
     state.tag = action.payload.tag
     state.tags = window.api.getTags(action.payload.tag)
   }
+
   if (action.type === '@@sound/ADD_TAG') {
     state.tag = ''
     state.tags.push(action.payload.tag)
     state.tags = Array.from(
-      new Set(
-        state.tags
-          .map(tag => tag.toLowerCase())
-      )
+      new Set(state.tags.map(tag => tag.toLowerCase()))
     ).filter(tag => tag !== '')
     state.sound.tags = Array.from(
       new Set(state.sound.tags.concat(state.tags))
     )
+  }
+
+  if (action.type === '@@sound/REMOVE_TAG') {
+    state.tag = ''
+    state.tags = state.tags.filter(tag => tag !== action.payload.tag)
+    state.sound.tags = state.sound.tags.filter(tag => tag !== action.payload.tag)
   }
 
   if (action.type === '@@sound/HIDE_ALL_TAGS') {
@@ -86,7 +88,9 @@ export default (state, action) => {
   }
 
   if (action.type === '@@sound/SHOW_ALL_TAGS') {
-    state.tags = window.api.getTags()
+    state.tags = Array.from(
+      new Set(state.sound.tags.concat(window.api.getTags()))
+    )
   }
 
   return state

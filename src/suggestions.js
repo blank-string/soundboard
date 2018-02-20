@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Delete from './icons/delete'
 
 const Suggestion = ({label, useSuggestion}) => <button className='button is-fullwidth' onClick={useSuggestion}>{label}</button>

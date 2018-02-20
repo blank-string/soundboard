@@ -1,18 +1,17 @@
 import React from 'react'
 import Suggestions from '../suggestions'
+import styles from './styles'
 
-const Tags = (
-  {
-    addTag,
-    updateTag,
-    showAllTags,
-    hideAllTags,
-    tags,
-    tag,
-    soundTags
-  }
-) => {
-  console.log('tag:', tag, 'tags:', tags, 'soundTags:', soundTags)
+const Tags = ({
+  addTag,
+  removeTag,
+  updateTag,
+  showAllTags,
+  hideAllTags,
+  tags,
+  tag,
+  soundTags
+}) => {
   return <div>
     <Suggestions
       update={updateTag}
@@ -23,6 +22,12 @@ const Tags = (
       label='Tags'
       add={addTag}
     />
+    <div>
+      {soundTags.map(soundTag => <div key={soundTag} className={`tags has-addons ${styles.tag()}`}>
+        <span className='tag is-info'>{soundTag}</span>
+        <button className={`tag is-delete is-danger ${styles.deleteTag()}`} onClick={() => removeTag(soundTag)} />
+      </div>)}
+    </div>
   </div>
 }
 

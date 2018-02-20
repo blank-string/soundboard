@@ -40,6 +40,12 @@ export default (dispatch, {history}) => {
         payload: {tag}
       })
     },
+    removeTag: tag => {
+      dispatch({
+        type: '@@sound/REMOVE_TAG',
+        payload: {tag}
+      })
+    },
     showAllTags: () => {
       dispatch({
         type: '@@sound/SHOW_ALL_TAGS'
