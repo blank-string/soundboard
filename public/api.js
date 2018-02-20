@@ -148,6 +148,12 @@ const API = () => {
         return count === 0
       })
 
+      const tags = db.addCollection('tags')
+      tags.removeWhere(({value}) => {
+        const count = sounds.where(s => s.tags.includes(value)).length
+        return count === 0
+      })
+
       db.saveDatabase()
     },
     getCategories (value) {
