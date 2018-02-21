@@ -101,10 +101,20 @@ const API = () => {
 
       db.saveDatabase()
     },
-    getSounds () {
+    getSounds (obj = {}) {
       let sounds = db.getCollection('sounds')
-      if (sounds === null) sounds = db.addCollection('sounds')
-      const data = sounds.data
+
+      const categories = obj.categories || []
+      const tags = obj.tags || []
+      const name = obj.name || ''
+
+      const data = sounds.where(sound => {
+        if (categories.length > 0 && !categories.includes(sound.category)) return false
+        // if (tags.length > 0 && !tags.some(tag => sound.tags.includes(tag))) return false
+        // if (fuzzy.match(name, sound.label))
+        return true
+      })
+
       data.forEach(sound => {
         sound.exists = fs.existsSync(sound.location)
       })
