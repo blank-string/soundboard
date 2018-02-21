@@ -69,6 +69,10 @@ const styles = StyleSheet.create({
   },
   tag: {
     marginRight: 1
+  },
+  categories: {
+    marginTop: 5,
+    marginBottom: 5
   }
 })
 
@@ -82,5 +86,6 @@ export default {
   icon: () => css(styles.icon),
   sounds: () => css(styles.sounds),
   sound: (exists) => `${css(styles.sound)} ${exists ? '' : css(styles.soundError)}`,
-  tag: () => css(styles.tag)
+  tag: () => css(styles.tag),
+  categories: () => css(styles.categories)
 }
