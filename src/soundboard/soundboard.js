@@ -2,12 +2,13 @@ import React from 'react'
 import styles from './styles'
 import Image from './image'
 import Buttons from './buttons'
-import Categories from './categories'
+import Tabs from './tabs'
 
-const Soundboard = ({toggleCategory, soundboard}) => <section>
+const Soundboard = ({toggleCategory, toggleTag, soundboard}) => <section>
   <audio id='audio' />
   <div className='container'>
-    <Categories categories={soundboard.categories} toggleCategory={toggleCategory} />
+    <Tabs tabs={soundboard.categories} toggle={toggleCategory} />
+    <Tabs tabs={soundboard.tags} toggle={toggleTag} />
     <div className={styles.sounds()}>
       {soundboard.sounds.map(sound => <div key={sound.uuid} className={styles.sound(sound.exists)}>
         <audio id={sound.uuid} src={sound.location} />

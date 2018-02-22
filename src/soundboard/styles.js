@@ -87,5 +87,5 @@ export default {
   sounds: () => css(styles.sounds),
   sound: (exists) => `${css(styles.sound)} ${exists ? '' : css(styles.soundError)}`,
   tag: () => css(styles.tag),
-  categories: () => css(styles.categories)
+  tabs: () => css(styles.categories)
 }

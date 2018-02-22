@@ -108,13 +108,13 @@ const API = () => {
       const tags = obj.tags || []
       const name = obj.name || ''
 
-      const data = sounds.where(sound => {
-        if (categories.length > 0 && !categories.includes(sound.category)) return false
-        // if (tags.length > 0 && !tags.some(tag => sound.tags.includes(tag))) return false
-        // if (fuzzy.match(name, sound.label))
-        return true
-      })
-
+      // const data = sounds.where(sound => {
+      //   if (categories.length > 0 && !categories.includes(sound.category)) return false
+      //   if (tags.length > 0 && !tags.some(tag => sound.tags.includes(tag))) return false
+      //   // if (fuzzy.match(name, sound.label))
+      //   return true
+      // })
+      const data = sounds.data
       data.forEach(sound => {
         sound.exists = fs.existsSync(sound.location)
       })
