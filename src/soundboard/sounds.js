@@ -19,7 +19,12 @@ const Sounds = ({sounds}) => <div>
           </p>
           <a href='#' className='card-header-icon' aria-label='more options'>
             <span className='icon'>
-              <i className='fas fa-angle-down' aria-hidden='true' />
+              D
+            </span>
+          </a>
+          <a href='#' className='card-header-icon' aria-label='more options'>
+            <span className='icon'>
+              X
             </span>
           </a>
         </header>
