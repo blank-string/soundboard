@@ -43,7 +43,17 @@ export default (state, action) => {
   sounds.forEach((sound, i) => {
     if (process.env.NODE) sound.location = sound.location.replace(process.cwd(), '')
   })
-  state.soundboard.sounds = sounds
+
+  const soundboardSounds = {}
+  sounds.forEach(sound => {
+    const category = sound.category || 'No Category'
+    soundboardSounds[category] = soundboardSounds[category] || {
+      label: category,
+      sounds: []
+    }
+    soundboardSounds[category].sounds.push(sound)
+  })
+  state.soundboard.sounds = soundboardSounds
 
   return state
 }
